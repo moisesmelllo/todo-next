@@ -1,7 +1,8 @@
 'use client'
 
-import { useFetch } from "@/useFetcher"
-import { Suspense } from "react"
+import { useFetch } from "@/hooks/useFetcher"
+import Header from "@/components/Header";
+import Body from "@/components/Body";
 
 export default function Home() {
   const {data, isFetching, error} = useFetch('http://localhost:8000/posts')
@@ -16,11 +17,9 @@ export default function Home() {
   }
 
   return (
-      <main>
-        <h1>Todo List</h1>
-        {data && data.map((post) => (
-          <p key={post.id}>{post.title}</p>
-        ))}
+      <main className="relative w-screen">
+        <Header />
+        <Body data={data}/>     
       </main>
   )
 }
