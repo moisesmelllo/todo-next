@@ -1,8 +1,8 @@
 const Todos = ({post}) => {
   return (
-      <p>
+      <div className="py-1 my-1">
           {post.todo}
-      </p>
+      </div>
   )
 }
 

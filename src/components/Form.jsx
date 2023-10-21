@@ -21,18 +21,20 @@ const Form = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="px-4">
-      <label>
-        <span>Todo: </span>
+    <form onSubmit={handleSubmit} className="px-4 mt-2 flex items-center justify-between">
+      <label className="flex items-center space-x-2 mr-2">
         <input 
-          type="text" 
+          type="text"
           name="todo"
           required
           placeholder="Add a new task"
           value={todo}
           onChange={(e) => setTodo(e.target.value)}
+          className="border-b outline-none border-black 
+          sm:w-[400px] md:w-[600px] xl:w-[800px]"
         />
       </label>
+      <button className="bg-[#4553B1] rounded-md py-1 px-2 text-white font-semibold">Cadastrar</button>
     </form>
   )
 }
