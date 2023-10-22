@@ -8,6 +8,7 @@ const Header = () => {
       <Image 
       src={logo}
       alt='React logo'
+      priority
       height={0}
       width={0}
       className="w-auto h-24"

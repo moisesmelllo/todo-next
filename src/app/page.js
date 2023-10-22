@@ -1,12 +1,21 @@
 'use client'
 
-import { useFetch } from "@/hooks/useFetcher"
+import { useQuery } from 'react-query'
 import Header from "@/components/Header";
 import Body from "@/components/Body";
+import axios from 'axios';
 
 export default function Home() {
-  const {data, isFetching, error} = useFetch('http://localhost:8000/posts')
+  const { data, isFetching, error } = useQuery({
+    queryKey: ['todos'],
+    queryFn: async () => {
+      const {data } = await axios.get('http://localhost:8000/posts')
 
+      return data
+    }
+  });
+  
+  console.log(data);
 
   if (isFetching) {
     return <p>Loading...</p>;

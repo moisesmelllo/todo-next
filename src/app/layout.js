@@ -1,4 +1,5 @@
 import './globals.css'
+import TankstackProvider from '@/providers/TanstackProvider'
 
 export const metadata = {
   title: 'Create Next App',
@@ -8,7 +9,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html>
-      <body suppressHydrationWarning={true}>{children}</body>
+      <TankstackProvider>
+        <body suppressHydrationWarning={true}>
+          {children}
+        </body>
+      </TankstackProvider>
+      
     </html>
   )
 }
